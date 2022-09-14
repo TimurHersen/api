@@ -1,0 +1,63 @@
+openapi: 3.0.1
+info:
+  title: My SEB API
+  version: '1.0'
+  description: the most useful api...
+  termsOfService: https://www.example.com/tos
+  contact:
+    email: support@example.com
+    name: Support Team
+    url: https://www.example.com/contact
+  license:
+    name: License
+    url: https://www.example.com/license
+servers:
+  - url: https://my-json-server.typicode.com/bearc0025/api
+    variables: {}
+    description: my fake github server
+paths:
+  /users:
+    summary: fetch all users, create a new user
+    description: user level operations
+    get:
+      summary: fetch all users
+      description: returns users from server
+      operationId: fetchUsers
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FullUser'
+        default:
+          description: Default error sample response
+      tags:
+        - users
+components:
+  schemas:
+    FullUser: 
+      type: object
+      properties:
+        id:
+          type: string
+          example: 1234asdf
+        username:
+          type: string
+          example: bear23432
+        score:
+          type: integer
+          example: 67
+        active:
+          type: boolean
+          example: false
+    
+
+
+
+
+
+
+
+
+
